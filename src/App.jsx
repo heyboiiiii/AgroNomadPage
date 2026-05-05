@@ -1,7 +1,8 @@
-import { useState } from 'react'
 import AgroNomadLanding from './AgroNomadLanding.jsx'
+import './index.css'
+
 function App() {
-  <AgroNomadLanding />;
+  return (<AgroNomadLanding />);
 }
 
 export default App

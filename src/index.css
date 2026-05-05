@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
@@ -5,9 +7,13 @@
 /* ./src/index.css */
 
 @custom-variant dark (&:is(.dark *));
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@theme {
+  --color-dark-green: #0E4607;
+  --color-medium-green: #196D29;
+  --color-light-green: #559F2F;
+  --color-light-orange: #E9923D;
+}
 
 @theme inline {
     --font-heading: var(--font-sans);
@@ -50,7 +56,8 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
-}
+
+  }
 
 :root {
     --background: oklch(1 0 0);
