@@ -62,7 +62,7 @@ export default function AgroNomadLanding() {
               Monitoreo inteligente de ganado con AgroNomad
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Una pulsera inteligente diseñada para rastrear la ubicación del ganado y monitorear
+              Un collar inteligente diseñado para rastrear la ubicación del ganado y monitorear
               datos de salud vitales como la frecuencia cardíaca y la temperatura corporal en tiempo real.
             </p>
             <Button className="text-lg px-6 py-6">Ver cómo funciona</Button>
