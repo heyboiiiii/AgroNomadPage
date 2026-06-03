@@ -5,25 +5,24 @@ import { Button } from "@/components/ui/button";
 import { MapPin, HeartPulse, Thermometer, Cpu, Radio, Battery } from "lucide-react";
 
 import logoIg from "@/assets/logos/Logo_instagram.png";
-import img1 from "@/assets/agronomad/Agronomad_presentation(1).jpeg";
-import img2 from "@/assets/agronomad/Agronomad_presentation(2).jpeg";
-import img3 from "@/assets/agronomad/Agronomad_presentation(3).jpeg";
-import img4 from "@/assets/agronomad/Agronomad_presentation(4).jpeg";
+import imgc1s1 from "@/assets/agronomad/Presentation1/NomadC1S1.jpeg";
+import imgc1s2 from "@/assets/agronomad/Presentation1/NomadC1S2.jpeg";
+import imgc1s3 from "@/assets/agronomad/Presentation1/NomadC1S3.jpeg";
+import imgc1s4 from "@/assets/agronomad/Presentation1/NomadC1S4.jpeg";
+import imgc2s1 from "@/assets/agronomad/Presentation2/NomadC2S1.jpeg";
+import imgc2s2 from "@/assets/agronomad/Presentation2/NomadC2S2.jpeg";
+import imgc2s3 from "@/assets/agronomad/Presentation2/NomadC2S3.jpeg";
+import imgc2s4 from "@/assets/agronomad/Presentation2/NomadC2S4.jpeg";
 
 export default function AgroNomadLanding() {
-  const images = [img1, img2, img3, img4];
+  const imagesc1 = [imgc1s1, imgc1s2, imgc1s3, imgc1s4];
+  const imagesc2 = [imgc2s1, imgc2s2, imgc2s3, imgc2s4]
   const [current, setCurrent] = useState(0);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-      setProgress(0);
+      setCurrent((prev) => (prev + 1) % imagesc1.length);
     }, 5000);
-
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => Math.min(prev + 2, 100));
-    }, 100);
 
     return () => {
       clearInterval(interval);
@@ -62,18 +61,19 @@ export default function AgroNomadLanding() {
               Monitoreo inteligente de ganado con AgroNomad
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Un collar inteligente diseñado para rastrear la ubicación del ganado y monitorear
-              datos de salud vitales como la frecuencia cardíaca y la temperatura corporal en tiempo real.
+              Un sistema diseñado para el ganado bovino con el fin de rastrear la ubicación y monitorear datos de salud
+              vitales como la frecuencia cardíaca y la temperatura corporal en tiempo real.
             </p>
-            <Button className="text-lg px-6 py-6">Ver cómo funciona</Button>
+            <Button className="text-lg px-6 py-6"
+            onClick={() => {
+              document.getElementById("how").scrollIntoView({behavior:"smooth"});
+            }}
+            >Ver cómo funciona</Button>
           </div>
           <div className="bg-gray-100 rounded-2xl h-[400px] relative overflow-hidden">
-            {images.map((img, i) => (
+            {imagesc1.map((img, i) => (
               <img key={i} src={img} alt={`Presentation ${i+1}`} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'}`} />
             ))}
-            <div className="absolute bottom-4 left-4 right-4 h-2 bg-white/50 rounded-full overflow-hidden">
-              <div className="h-full bg-white rounded-full transition-all duration-100" style={{width: `${progress}%`}}></div>
-            </div>
           </div>
         </div>
       </section>
@@ -81,11 +81,12 @@ export default function AgroNomadLanding() {
       {/* ABOUT */}
       <section id="about" className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-6">Acerca del Proyecto</h3>
+          <h3 className="text-3xl font-bold mb-6">Acerca del proyecto</h3>
           <p className="text-gray-600 text-lg">
-            Agronomad es una plataforma de monitoreo inteligente de ganado diseñada para ayudar a los agricultores
-            a rastrear su ganado y monitorear indicadores de salud. El dispositivo colgante recopila datos en tiempo real
-            y los envía a una plataforma web para un análisis fácil y una toma de decisiones informada.
+            Agronomad es un sistema de monitoreo inteligente diseñado con el fin de brindar al sector ganadero una
+            herramienta que permita rastrear y monitorear indicadores de salud del ganado. El collar recopila datos
+            en tiempo real y los envía a una estación de recepción, donde son procesados y subidos a una interfaz web para un
+            análisis fácil y una toma de decisiones informada.
           </p>
         </div>
       </section>
@@ -97,23 +98,23 @@ export default function AgroNomadLanding() {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="rounded-2xl">
               <CardContent className="p-6 text-center">
-                <Cpu className="mx-auto mb-4" size={40} />
-                <h4 className="font-semibold text-lg mb-2">Dispositivo Colgante</h4>
-                <p className="text-gray-600">Instalado sobre el ganado para recopilar datos de salud.</p>
+                <Radio className="mx-auto mb-4" size={40} />
+                <h4 className="font-semibold text-lg mb-2">Collar Inteligente</h4>
+                <p className="text-gray-600">Se coloca en el ganado para recopilar y enviar de forma inalámbrica los datos de salud y ubicación.</p>
               </CardContent>
             </Card>
             <Card className="rounded-2xl">
               <CardContent className="p-6 text-center">
-                <Radio className="mx-auto mb-4" size={40} />
-                <h4 className="font-semibold text-lg mb-2">Transmisión Inalámbrica</h4>
-                <p className="text-gray-600">Los datos se envían a la plataforma en la nube.</p>
+                <Cpu className="mx-auto mb-4" size={40} />
+                <h4 className="font-semibold text-lg mb-2">Estación de Recepción</h4>
+                <p className="text-gray-600">Recibe y procesa los registros enviados por los collares. A su vez, genera la interfaz de usuario.</p>
               </CardContent>
             </Card>
             <Card className="rounded-2xl">
               <CardContent className="p-6 text-center">
                 <MapPin className="mx-auto mb-4" size={40} />
-                <h4 className="font-semibold text-lg mb-2">Panel de Monitoreo</h4>
-                <p className="text-gray-600">Los agricultores ven los datos en tiempo real.</p>
+                <h4 className="font-semibold text-lg mb-2">Interfaz de Usuario</h4>
+                <p className="text-gray-600">La información procesada puede verse reflejada en tiempo real.</p>
               </CardContent>
             </Card>
           </div>
@@ -137,16 +138,22 @@ export default function AgroNomadLanding() {
 
       {/* TECHNOLOGY */}
       <section id="tech" className="py-20 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-6">Tecnología Utilizada</h3>
+          <h3 className="text-3xl font-bold mb-6">Tecnología utilizada</h3>
           <ul className="text-gray-600 space-y-2">
-            <li>ESP32 Microcontrolador</li>
+            <li>Microcontrolador ESP32</li>
             <li>Módulo GPS</li>
-            <li>Sensor de Temperatura</li>
-            <li>Sensor de Frecuencia Cardíaca</li>
-            <li>Comunicación Inalámbrica (LoRa / GSM / WiFi)</li>
-            <li>Panel de monitoreo Web y Fisico(Dashboard)</li>
+            <li>Sensores de movimiento, temperatura y frecuencia cardíaca</li>
+            <li>Comunicación inalámbrica (LoRa / GSM / WiFi)</li>
+            <li>Interfaz de monitoreo web y física</li>
           </ul>
+        </div>
+        <div className="bg-gray-100 rounded-2xl h-[400px] w-[400px] relative overflow-hidden mx-auto">
+            {imagesc2.map((img, i) => (
+              <img key={i} src={img} alt={`Presentation ${i+1}`} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'}`} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -154,7 +161,7 @@ export default function AgroNomadLanding() {
       <section id="contact" className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-3xl font-bold mb-6">Contacto</h3>
-          <p className="text-gray-600 mb-2">E.E.S.T N.7("T.R.Q"), Quilmes, Buenos Aires</p>
+          <p className="text-gray-600 mb-2">E.E.S.T N.7 ("T.R.Q"), Quilmes, Buenos Aires</p>
           <p className="text-gray-600 mb-2">nomadbusiness2026@gmail.com</p>
             <a className="flex items-center justify-center space-x-1 w-fit mx-auto" href="https://www.instagram.com/proyecto.agronomad" target="_blank" rel="noopener noreferrer">
               <img src={logoIg} alt="Instagram" className="w-6 h-6" />
@@ -165,7 +172,7 @@ export default function AgroNomadLanding() {
 
       {/* FOOTER */}
       <footer className="py-8 text-center border-t">
-        <p className="text-gray-500">© 2026 AgroNomad - Monitoreo Inteligente de Ganado.</p>
+        <p className="text-gray-500">© 2026 AgroNomad - Monitoreo Inteligente de Ganado</p>
       </footer>
     </div>
   );
