@@ -33,7 +33,7 @@ export default function AgroNomadLanding() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-white">
       {/* NAVBAR */}
       <header className="w-full border-b sticky top-0 bg-white/80 backdrop-blur z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
