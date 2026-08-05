@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { DarkModeToggle } from './DarkMode.jsx'
+import DarkModeToggle from './DarkMode.jsx'
 
-
-import { MapPin, HeartPulse, Thermometer, Cpu, Radio, Battery, Sun, Moon } from "lucide-react";
+import { MapPin, HeartPulse, Thermometer, Cpu, Radio, Battery } from "lucide-react";
 
 import logoIg from "@/assets/logos/Logo_instagram.png";
 import imgc1s1 from "@/assets/agronomad/Presentation1/NomadC1S1.jpeg";
@@ -52,11 +51,7 @@ export default function AgroNomadLanding() {
             <a href="#features" className="hover:text-gray-600">Prestaciones</a>
             <a href="#tech" className="hover:text-gray-600">Tecnologia</a>
             <a href="#contact" className="hover:text-gray-600">Contacto</a>
-            <Button icon={<Sun />} className="text-lg px-6 py-6"
-            onClick={() => {
-              setIsDark(!isDark)
-            }}
-            >Dark Mode Toggle</Button>
+            <DarkModeToggle />
           </nav>
         </div>
       </header>
