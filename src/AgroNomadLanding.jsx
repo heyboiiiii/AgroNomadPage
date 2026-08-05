@@ -49,9 +49,9 @@ export default function AgroNomadLanding() {
             <a href="#features" className="hover:text-gray-600">Prestaciones</a>
             <a href="#tech" className="hover:text-gray-600">Tecnologia</a>
             <a href="#contact" className="hover:text-gray-600">Contacto</a>
-            <Button className="text-lg px-6 py-6" icon={<Sun />}
+            <Button icon={<Sun />} className="text-lg px-6 py-6"
             onClick={() => {
-
+              document.getElementById("how").scrollIntoView({behavior:"smooth"});
             }}
             ></Button>
           </nav>
