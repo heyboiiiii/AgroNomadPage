@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { DarkModeToggle } from './DarkMode.jsx'
+
 
 import { MapPin, HeartPulse, Thermometer, Cpu, Radio, Battery, Sun, Moon } from "lucide-react";
 
@@ -14,31 +16,6 @@ import imgc2s2 from "@/assets/agronomad/Presentation2/NomadC2S2.jpeg";
 import imgc2s3 from "@/assets/agronomad/Presentation2/NomadC2S3.jpeg";
 import imgc2s4 from "@/assets/agronomad/Presentation2/NomadC2S4.jpeg";
 
-export default function DarkModeToggle() {
-  const [isDark, setIsDark] = useState(() => {
-    // Check local storage or system preferences on initial load
-    if (typeof window !== 'undefined') {
-      return (
-        localStorage.theme === 'dark' ||
-        (!('theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      );
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDark]);
-  return false;
-}
 
 export default function AgroNomadLanding() {
   const imagesc1 = [imgc1s1, imgc1s2, imgc1s3, imgc1s4];
