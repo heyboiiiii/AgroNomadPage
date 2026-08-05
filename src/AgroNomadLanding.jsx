@@ -14,6 +14,32 @@ import imgc2s2 from "@/assets/agronomad/Presentation2/NomadC2S2.jpeg";
 import imgc2s3 from "@/assets/agronomad/Presentation2/NomadC2S3.jpeg";
 import imgc2s4 from "@/assets/agronomad/Presentation2/NomadC2S4.jpeg";
 
+export default function DarkModeToggle() {
+  const [isDark, setIsDark] = useState(() => {
+    // Check local storage or system preferences on initial load
+    if (typeof window !== 'undefined') {
+      return (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      );
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
+  return false;
+}
+
 export default function AgroNomadLanding() {
   const imagesc1 = [imgc1s1, imgc1s2, imgc1s3, imgc1s4];
   const imagesc2 = [imgc2s1, imgc2s2, imgc2s3, imgc2s4]
@@ -51,9 +77,9 @@ export default function AgroNomadLanding() {
             <a href="#contact" className="hover:text-gray-600">Contacto</a>
             <Button icon={<Sun />} className="text-lg px-6 py-6"
             onClick={() => {
-              document.getElementById("how").scrollIntoView({behavior:"smooth"});
+              setIsDark(!isDark)
             }}
-            ></Button>
+            >Dark Mode Toggle</Button>
           </nav>
         </div>
       </header>
