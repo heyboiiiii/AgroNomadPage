@@ -6,7 +6,7 @@
 
 /* ./src/index.css */
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-dark-green: #0E4607;

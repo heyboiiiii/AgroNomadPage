@@ -4,7 +4,6 @@ import { Sun, Moon } from "lucide-react";
 
 export default function DarkModeToggle() {
   const [isDark, setIsDark] = useState(() => {
-    // Check local storage or system preferences on initial load
     if (typeof window !== 'undefined') {
       return (
         localStorage.theme === 'dark' ||
