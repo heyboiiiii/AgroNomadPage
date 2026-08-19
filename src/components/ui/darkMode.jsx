@@ -26,11 +26,10 @@ export default function DarkModeToggle() {
   }, [isDark]);
   return (
     <Button
-      icon={isDark ? <Moon /> : <Sun />}
-      className="text-lg px-6 py-6"
+      className="size-12 bg-transparent ml-2"
       onClick={() => setIsDark((prev) => !prev)}
     >
-      {isDark ? "Light Mode" : "Dark Mode"}
-    </Button>
+      {isDark ? <Moon color="white" className="sm:size-6 md:size-8 lg:size-8"/> : <Sun color="black" className="sm:size-6 md:size-8 lg:size-8"/>}
+    </Button>   
   );
 }
