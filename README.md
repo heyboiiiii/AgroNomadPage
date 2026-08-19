@@ -1,6 +1,6 @@
 # Web App/Page for AgroNomad 
 
-## Penditing Functionabilities:
+## Pending Functionalities:
 
 2 - Make a contact form
 
