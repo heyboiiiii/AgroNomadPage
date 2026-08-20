@@ -6,6 +6,9 @@ import DarkModeToggle from '@/components/ui/darkMode.jsx'
 import { MapPin, SolarPanel, Thermometer, Radio, Cpu } from "lucide-react";
 
 import logoIg from "@/assets/logos/Logo_instagram.png";
+import logoTiktok from "@/assets/logos/Logo_tiktok.png";
+import logoMaps from "@/assets/logos/Logo_maps.png";
+import logoGmail from "@/assets/logos/Logo_gmail.png";
 import cowField from "@/assets/agronomad/Images/cowfield.png";  
 import greenField from "@/assets/agronomad/Images/greenField.jpg";
 import imgc1s1 from "@/assets/agronomad/Presentation1/NomadC1S1.jpeg";
@@ -124,19 +127,19 @@ export default function AgroNomadLanding() {
 
       {/* ABOUT */}
       <section id="description" className="py-5 px-2 md:py-30 md:px-20 h-[calc(100lvh-80px)] w-full bg-gray-50 dark:bg-gray-950 lg:scroll-mt-28">
-        <div className="block md:grid grid-cols-2 gap-40 mx-auto text-center h-full w-full">
+        <div className="block md:grid grid-cols-2 gap-20 mx-auto justify-items-center text-center h-full w-full">
           <div className="md:mx-8 md:my-6">
             <h3 className="text-lg md:text-5xl font-bold mb-2 md:mb-20">Descripción del proyecto</h3>
-            <p className="text-center text-gray-600 text-sm md:text-3xl md:leading-12 dark:text-gray-50 ">
-              Agronomad es un sistema de monitoreo inteligente diseñado con el fin de brindar al sector ganadero una
+            <p className="text-center font-light text-gray-600 text-sm md:text-3xl md:leading-12 dark:text-gray-50 ">
+              AgroNomad es un sistema de monitoreo inteligente diseñado con el fin de brindar al sector ganadero una
               herramienta que permita rastrear y monitorear indicadores de salud del ganado.
             </p>
-            <p className="text-center text-gray-600 text-sm md:text-3xl md:leading-12 dark:text-gray-50">
+            <p className="text-center font-light text-gray-600 text-sm md:text-3xl md:leading-12 dark:text-gray-50">
               El collar recopila datos en tiempo real y los envía a una estación de recepción, donde son procesados y subidos a una interfaz web para un
               análisis fácil y una toma de decisiones informada.
             </p>
           </div>
-          <div className="invisible md:visible bg-gray-100 size-full object-contain relative overflow-hidden items-stretch rounded-3xl">
+          <div className="invisible md:visible bg-gray-100 size-[600px] relative overflow-hidden rounded-3xl">
             {imagesc1.map((img, i) => (
               <img key={i} src={img} alt={`Presentation ${i+1}`} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'}`} />
             ))}
@@ -182,17 +185,17 @@ export default function AgroNomadLanding() {
 
       {/* FEATURES */}
       <section id="features" className="py-5 px-2 md:py-12 md:px-15 h-[calc(100lvh-80px)] w-full bg-gray-50 dark:bg-gray-950 lg:scroll-mt-28">
-        <div className="mx-auto" style={{ maxWidth: "1600px" }}>
+        <div className="max-w-8xl mx-auto">
           <h3 className="text-5xl font-bold text-center mb-12">Prestaciones</h3>
-          <div className="w-full h-full grid md:grid-cols-3 gap-12">
-            <div className="relative grid md:grid-rows-2 gap-12">
+          <div className="w-full grid md:grid-cols-3 gap-12">
+            <div className="relative grid md:grid-rows-2">
               <Feature icon={<SolarPanel className="size-10" color="Orange"/>} title="Alimentación Solar" description="Proporciona energía renovable para el funcionamiento del dispositivo." />
               <Feature icon={<Thermometer className="size-10" color="Orange"/>} title="Temperatura" description="Mide y analiza la temperatura del ganado durante la actividad." />
             </div>
-            <div className="bg-gray-100 rounded-2xl h-full w-full relative overflow-hidden">
+            <div className="bg-gray-100 rounded-2xl max-h-9/10 w-full relative overflow-hidden">
               <img src={greenField} alt="Green Field" className="rounded-2xl w-full h-full object-cover" />
             </div>
-            <div className="relative grid md:grid-rows-2 gap-12">
+            <div className="relative grid md:grid-rows-2">
               <Feature icon={<Radio className="size-10" color="Green"/>} title="Comunicación LoRa" description="Permite la comunicación inalámbrica entre los AgroNeck y el AgroBot." />
               <Feature icon={<MapPin className="size-10" color="Green"/>} title="Seguimiento GPS" description="Realiza un seguimiento preciso de la ubicación del ganado en tiempo real." />
             </div>
@@ -201,36 +204,46 @@ export default function AgroNomadLanding() {
       </section>
 
       {/* TECHNOLOGY */}
-      <section id="tech" className="py-30 px-6 dark:text-gray-50 lg:scroll-mt-28">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-6">Tecnología utilizada</h3>
-          <ul className="text-gray-600 dark:text-gray-50 space-y-2">
-            <li>Microcontrolador ESP32</li>
-            <li>Módulo GPS</li>
-            <li>Sensores de movimiento, temperatura y frecuencia cardíaca</li>
-            <li>Comunicación inalámbrica (LoRa / GSM / WiFi)</li>
-            <li>Interfaz de monitoreo web y física</li>
-          </ul>
-        </div>
-        <div className="bg-gray-100 rounded-2xl h-[400px] w-[400px] relative overflow-hidden mx-auto">
+      <section id="tech" className="py-20 px-6 dark:text-gray-50 lg:scroll-mt-28">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div className="invisible md:visible bg-gray-100 rounded-2xl h-[500px] w-[500px] relative overflow-hidden mx-auto">
             {imagesc2.map((img, i) => (
               <img key={i} src={img} alt={`Presentation ${i+1}`} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'}`} />
             ))}
+          </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-5xl font-bold mb-16">Tecnología utilizada</h3>
+            <ul className="text-gray-600 dark:text-gray-50 space-y-5 text-xl font-light text-left list-disc list-inside">
+              <li>Microcontrolador ESP32</li>
+              <li>Módulo GPS</li>
+              <li>Sensores de movimiento, temperatura y frecuencia cardíaca</li>
+              <li>Comunicación inalámbrica (LoRa / GSM / WiFi)</li>
+              <li>Interfaz de monitoreo web y física</li>
+            </ul>
           </div>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-30 px-6 bg-gray-50 dark:bg-gray-950 lg:scroll-mt-28">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-6">Contacto</h3>
-          <p className="text-gray-600 dark:text-gray-50 mb-2">E.E.S.T N.7 ("T.R.Q"), Quilmes, Buenos Aires</p>
-          <p className="text-gray-600 dark:text-gray-50 mb-2">nomadbusiness2026@gmail.com</p>
-            <a className="flex items-center justify-center space-x-1 w-fit mx-auto" href="https://www.instagram.com/proyecto.agronomad" target="_blank" rel="noopener noreferrer">
-              <img src={logoIg} alt="Instagram" className="w-6 h-6" />
-              <p className="text-gray-600 dark:text-gray-50">@proyecto.agronomad</p>
-            </a>
+      <section id="contact" className="py-15 px-6 bg-gray-50 dark:bg-gray-950 lg:scroll-mt-28">
+        <div className="max-w-4xl mx-auto space-y-3 text-center">
+          <h3 className="text-4xl font-bold mb-10">Contacto</h3>
+          <a className="flex items-center justify-center space-x-2 w-fit mx-auto" href="https://maps.app.goo.gl/AHRDNMTGLFKU1UtW8" target="_blank" rel="noopener noreferrer">
+            <img src={logoMaps} alt="Maps" className="w-6 h-6" />
+            <p className="text-gray-600 dark:text-gray-50">E.E.S.T N.7 ("T.R.Q"), Quilmes, Buenos Aires</p>
+          </a>
+          <a className="flex items-center justify-center space-x-2 w-fit mx-auto" href="mailto:nomadbusiness2026@gmail.com" target="_blank" rel="noopener noreferrer">
+            <img src={logoGmail} alt="Gmail" className="w-7 h-6" />
+            <p className="text-gray-600 dark:text-gray-50">nomadbusiness2026@gmail.com</p>
+          </a>
+          <a className="flex items-center justify-center space-x-2 w-fit mx-auto" href="https://www.instagram.com/proyecto.agronomad" target="_blank" rel="noopener noreferrer">
+            <img src={logoIg} alt="Instagram" className="w-6 h-6" />
+            <p className="text-gray-600 dark:text-gray-50">@proyecto.agronomad</p>
+          </a>
+          <a className="flex items-center justify-center space-x-2 w-fit mx-auto" href="https://www.tiktok.com/@proyecto.agronomad" target="_blank" rel="noopener noreferrer">
+            <img src={logoTiktok} alt="TikTok" className="w-6 h-6" />
+            <p className="text-gray-600 dark:text-gray-50">@proyecto.agronomad</p>
+          </a>
         </div>
       </section>
 
@@ -244,13 +257,13 @@ export default function AgroNomadLanding() {
 
 function Feature({ icon, title, description }) {
   return (
-    <Card className="rounded-2xl">
+    <Card className="max-h-3/4 rounded-2xl">
       <CardContent className="items-center p-8">
-        <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="flex items-center justify-center gap-4 mt-4 mb-12">
           <div className="flex-shrink-0">{icon}</div>
           <h4 className="font-semibold text-3xl text-left">{title}</h4>
         </div>
-        <h5 className="text-2xl text-center text-gray-600 dark:text-gray-50 mx-2">{description}</h5>
+        <h5 className="text-2xl text-center align-middle font-light text-gray-600 dark:text-gray-50 mx-2">{description}</h5>
       </CardContent>
     </Card>
   );
