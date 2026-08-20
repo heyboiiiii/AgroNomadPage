@@ -2,8 +2,10 @@
 
 ## Pending Functionalities:
 
-2 - Make a contact form
+1 - Update the style / add animations.
 
-~~3 - Implement more images(Dashboard)~~
+2 - Add responsive design.
+
+3 - Make a contact form.
 
 4 - Create app web for Dashboard(login form/cookies/database with clients).
